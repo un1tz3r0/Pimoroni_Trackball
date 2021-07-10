@@ -43,45 +43,22 @@
 
 /*!
  *  @brief  Instantiates a new Pimoroni_Trackball class
- *  @param  sensorID
- *          sensor ID
  *  @param  address
  *          i2c address
  *  @param  *theWire
  *          Wire object
  */
-Pimoroni_Trackball::Pimoroni_Trackball(int32_t sensorID, uint8_t address,
+Pimoroni_Trackball::Pimoroni_Trackball(uint8_t address,
                                  TwoWire *theWire) {
-  _sensorID = sensorID;
   _address = address;
   _wire = theWire;
 }
 
 /*!
  *  @brief  Sets up the HW
- *  @param  mode
- *          mode values
- *           [OPERATION_MODE_CONFIG,
- *            OPERATION_MODE_ACCONLY,
- *            OPERATION_MODE_MAGONLY,
- *            OPERATION_MODE_GYRONLY,
- *            OPERATION_MODE_ACCMAG,
- *            OPERATION_MODE_ACCGYRO,
- *            OPERATION_MODE_MAGGYRO,
- *            OPERATION_MODE_AMG,
- *            OPERATION_MODE_IMUPLUS,
- *            OPERATION_MODE_COMPASS,
- *            OPERATION_MODE_M4G,
- *            OPERATION_MODE_NDOF_FMC_OFF,
- *            OPERATION_MODE_NDOF]
  *  @return true if process is successful
  */
 bool Pimoroni_Trackball::begin() {
-//#if defined(ARDUINO_SAMD_ZERO) && (_address == BNO055_ADDRESS_A)
-//#error                                                                         \
-//    "On an arduino Zero, BNO055's ADR pin must be high. Fix that, then delete this line."
-//  _address = BNO055_ADDRESS_B;
-//#endif
 
   /* Enable I2C */
   _wire->begin();
